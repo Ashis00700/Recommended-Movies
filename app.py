@@ -1,7 +1,14 @@
 import pickle
 import streamlit as st
 import requests
+import os
+import gdown
 
+FILE_ID = "17JLy3vAlqDZ2TZxsPIlpT5b_KPTCdLiZ"
+
+if not os.path.exists("similarity.pkl"):
+    url = f"https://drive.google.com/uc?id={FILE_ID}"
+    gdown.download(url, "similarity.pkl", quiet=False)
 st.set_page_config(
     page_title="Netflix Style Recommender",
     page_icon="🎬",
